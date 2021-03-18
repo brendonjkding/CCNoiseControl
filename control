@@ -1,0 +1,9 @@
+Package: com.brend0n.ccnoisecontrol
+Name: CCNoiseControl
+Depends: mobilesubstrate, com.opa334.ccsupport
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: A Control Center Module to switch NoiseCancellation/Transparency
+Maintainer: Brend0n <brendonjkding@126.com>
+Author: Brend0n <brendonjkding@126.com>
+Section: Control Center (Modules)
