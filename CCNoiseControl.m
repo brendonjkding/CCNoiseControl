@@ -13,7 +13,16 @@
 @property (readonly) CALayer * rootLayer; 
 +(id)packageWithContentsOfURL:(id)arg1 type:(id)arg2 options:(id)arg3 error:(id*)arg4 ;
 @end
-
+@interface MediaControlsExpandableButton : UIControl
+@property (nonatomic,retain) NSArray * options;
+@end
+@interface MediaControlsBluetoothListeningModeButton : MediaControlsExpandableButton
+@property (nonatomic,retain) NSSet * availableListeningModes;
+@end
+@interface MediaControlsExpandableButtonOption : NSObject
+@property (nonatomic,retain) NSString * identifier;
+@property (nonatomic,retain) NSString * packageName;
+@end
 
 @implementation CCNoiseControl{
   UIImage* _noiseImage;
@@ -25,12 +34,25 @@
   NSBundle* bundle = [NSBundle bundleWithPath:@"/System/Library/PrivateFrameworks/BluetoothManager.framework"];
   if (!bundle.loaded) [bundle load];
 
-  if([[NSFileManager defaultManager] fileExistsAtPath:@"/System/Library/PrivateFrameworks/MediaControls.framework/ListeningModeNoiseCancellation.ca"]){
-    CAPackage* noisePackage=[CAPackage packageWithContentsOfURL:[NSURL fileURLWithPath:@"/System/Library/PrivateFrameworks/MediaControls.framework/ListeningModeNoiseCancellation.ca"] type:@"com.apple.coreanimation-bundle" options:0 error:nil];
+  if(objc_getClass("MediaControlsBluetoothListeningModeButton")){
+    NSString *noisePackageName, *transPackageName;
+    MediaControlsBluetoothListeningModeButton *button=[objc_getClass("MediaControlsBluetoothListeningModeButton") alloc];
+    [button setAvailableListeningModes:[NSSet setWithArray:@[@"AVOutputDeviceBluetoothListeningModeActiveNoiseCancellation",@"AVOutputDeviceBluetoothListeningModeAudioTransparency"]]];
+    for(MediaControlsExpandableButtonOption *option in [button options]){
+      if([[option identifier] isEqualToString:@"AVOutputDeviceBluetoothListeningModeActiveNoiseCancellation"]){
+        noisePackageName=[option packageName];
+      }
+      if([[option identifier] isEqualToString:@"AVOutputDeviceBluetoothListeningModeAudioTransparency"]){
+        transPackageName=[option packageName];
+      }
+    }
+    NSString *pathformat=@"/System/Library/PrivateFrameworks/MediaControls.framework/%@.ca";
+
+    CAPackage* noisePackage=[CAPackage packageWithContentsOfURL:[NSURL fileURLWithPath:[NSString stringWithFormat:pathformat, noisePackageName]] type:@"com.apple.coreanimation-bundle" options:0 error:nil];
     _noiseImage=[self imageFromLayer:[noisePackage rootLayer]];
     _noiseImage=[UIImage imageWithCGImage:_noiseImage.CGImage scale:_noiseImage.scale orientation:UIImageOrientationDownMirrored];
 
-    CAPackage* transPackage=[CAPackage packageWithContentsOfURL:[NSURL fileURLWithPath:@"/System/Library/PrivateFrameworks/MediaControls.framework/ListeningModeTransparency.ca"] type:@"com.apple.coreanimation-bundle" options:0 error:nil];
+    CAPackage* transPackage=[CAPackage packageWithContentsOfURL:[NSURL fileURLWithPath:[NSString stringWithFormat:pathformat, transPackageName]] type:@"com.apple.coreanimation-bundle" options:0 error:nil];
     _transImage=[self imageFromLayer:[transPackage rootLayer]];
     _transImage=[UIImage imageWithCGImage:_transImage.CGImage scale:_transImage.scale orientation:UIImageOrientationDownMirrored];
   }

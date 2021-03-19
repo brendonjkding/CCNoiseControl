@@ -1,9 +1,11 @@
 Package: com.brend0n.ccnoisecontrol
 Name: CCNoiseControl
 Depends: mobilesubstrate, com.opa334.ccsupport
-Version: 0.0.1
+Version: 0.0.2
 Architecture: iphoneos-arm
 Description: A Control Center Module to switch NoiseCancellation/Transparency
+ A Control Center Module to switch NoiseCancellation/Transparency
+ 0.0.2: Fix icon on iOS 13
 Maintainer: Brend0n <brendonjkding@126.com>
 Author: Brend0n <brendonjkding@126.com>
 Section: Control Center (Modules)
