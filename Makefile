@@ -1,4 +1,8 @@
+ifdef SIMULATOR
+TARGET := simulator:clang:11.2:11.0
+else
 TARGET := iphone:clang:13.0:11.0
+endif
 INSTALL_TARGET_PROCESSES = SpringBoard
 
 include $(THEOS)/makefiles/common.mk
