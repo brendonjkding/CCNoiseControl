@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleName</key>
-	<string>CCNoiseControl</string>
+	<string>CCNoiseControlProvider</string>
 	<key>CFBundleExecutable</key>
-	<string>CCNoiseControl</string>
+	<string>CCNoiseControlProvider</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.brend0n.ccnoisecontrol</string>
+	<string>com.brend0n.ccnoisecontrolprovider</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -26,29 +26,10 @@
 		<integer>2</integer>
 	</array>
 	<key>NSPrincipalClass</key>
-	<string>CCNoiseControl</string>
+	<string>CCNoiseControlProvider</string>
 	<key>CFBundleSupportedPlatforms</key>
 	<array>
 		<string>iPhoneOS</string>
 	</array>
-	<key>CCSGetModuleSizeAtRuntime</key>
-	<false/>
-	<key>CCSModuleSize</key>
-	<dict>
-		<key>Portrait</key>
-		<dict>
-			<key>Height</key>
-			<integer>1</integer>
-			<key>Width</key>
-			<integer>1</integer>
-		</dict>
-		<key>Landscape</key>
-		<dict>
-			<key>Height</key>
-			<integer>1</integer>
-			<key>Width</key>
-			<integer>1</integer>
-		</dict>
-	</dict>
 </dict>
 </plist>
