@@ -9,7 +9,7 @@ include $(THEOS)/makefiles/common.mk
 
 BUNDLE_NAME = CCNoiseControlProvider
 CCNoiseControlProvider_BUNDLE_EXTENSION = bundle
-CCNoiseControlProvider_FILES = CCNoiseControl.m CCNoiseControlProvider.m
+CCNoiseControlProvider_FILES = CCNoiseControl.m CCNoiseControlProvider.m CCNoiseControlNormal.m
 CCNoiseControlProvider_CFLAGS = -fobjc-arc
 CCNoiseControlProvider_PRIVATE_FRAMEWORKS = ControlCenterUIKit
 CCNoiseControlProvider_INSTALL_PATH = /Library/ControlCenter/CCSupport_Providers

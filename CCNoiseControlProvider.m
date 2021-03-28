@@ -1,5 +1,6 @@
 #import "CCNoiseControlProvider.h"
 #import "CCNoiseControl.h"
+#import "CCNoiseControlNormal.h"
 #import "CAPackage.h"
 #import <ControlCenterUIKit/CCUICAPackageDescription.h>
 #import <objc/runtime.h>
@@ -15,7 +16,7 @@
 
 - (NSUInteger)numberOfProvidedModules
 {
-  return 1;
+  return 2;
 }
 
 - (NSString*)identifierForModuleAtIndex:(NSUInteger)index
@@ -24,7 +25,7 @@
     return @"com.brend0n.ccnoisecontrol";
   }
   else{
-    return @"";
+    return @"com.brend0n.ccnoisecontrolnormal";
   }
 }
 
@@ -35,6 +36,9 @@
   {
     if([identifier isEqualToString:@"com.brend0n.ccnoisecontrol"]){
       module = [[CCNoiseControl alloc] init];  
+    }
+    else{
+      module = [[CCNoiseControlNormal alloc] init];
     }
     [_moduleInstancesByIdentifier setObject:module forKey:identifier];
   }
@@ -48,7 +52,7 @@
     return @"CCNoiseControl(NC/Trans)";
   }
   else{
-    return @"";
+    return @"CCNoiseControl(NC/Off)";
   }
 }
 
