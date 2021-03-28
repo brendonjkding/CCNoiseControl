@@ -65,10 +65,10 @@
           <value type="integer" value="1"/>
         </LKStateSetValue>
         <LKStateSetValue targetId="figure-tint-shape" keyPath="fillColor">
-          <value type="CGColor" value="0 0 0.5"/>
+          <value type="CGColor" value="0 0 1"/>
         </LKStateSetValue>
         <LKStateSetValue targetId="halo-tint-shape" keyPath="fillColor">
-          <value type="CGColor" value="0 0 0.5"/>
+          <value type="CGColor" value="0 0 1"/>
         </LKStateSetValue>
     	</elements>
       </LKState>
