@@ -1,10 +1,11 @@
 Package: com.brend0n.ccnoisecontrol
 Name: CCNoiseControl
 Depends: mobilesubstrate, com.opa334.ccsupport
-Version: 0.0.3
+Version: 0.0.4
 Architecture: iphoneos-arm
 Description: A Control Center Module to switch NoiseCancellation/Transparency. (Airpods Pro/Max)
  A Control Center Module to switch NoiseCancellation/Transparency. (Airpods Pro/Max)
+ 0.0.4: Fix glyph color not updated when no device connected. Properly update status when not caused by Module itself.
  0.0.3: Add NC/Off Module. Add transition animation. Add Settings Icon.
  0.0.2: Fix icon on iOS 13
 Maintainer: Brend0n <brendonjkding@126.com>
