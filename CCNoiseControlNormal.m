@@ -27,7 +27,7 @@
 - (BOOL)isSelected
 {
   NSArray*connectedDevices=[[objc_getClass("BluetoothManager") sharedInstance] connectedDevices];
-  if(![connectedDevices count]) return NO;
+  if(![connectedDevices count]) return (_selected=NO);
   _selected = ([connectedDevices[0] listeningMode]==2);
   return _selected;
 }
