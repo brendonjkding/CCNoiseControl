@@ -12,6 +12,19 @@
 @end
 
 @implementation CCNoiseControl
+- (instancetype)init{
+  self = [super init];
+  if(self){
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(listeningModeUpdated:) name:@"BluetoothAccessorySettingsChanged" object:nil];
+  }
+  return self;
+}
+-(void)dealloc{
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+-(void)listeningModeUpdated:(id)arg1{
+  [super refreshState];
+}
 - (NSString*)glyphState{
   return _selected?@"on":@"off";
 }
